@@ -9,10 +9,10 @@ body {
     background-color: #f4f4f4;
     color: #333;
     text-align: center;
-    padding: 20px;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    overflow-x: hidden;
 }
 
 header {
@@ -26,31 +26,65 @@ header {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-div {
+main {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+#data-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+}
+
+.data-block {
     background-color: white;
-    padding: 40px;
-    margin: 40px auto;
-    width: 60%;
-    max-width: 600px;
+    padding: 20px;
     border-radius: 12px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
-    font-size: 20px;
-    font-weight: bold;
-    text-transform: capitalize;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.data-block h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.data-block img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    object-fit: contain;
+    margin-bottom: 10px;
+}
+
+.data-block:hover {
+    transform: scale(1.05);
 }
 
 footer {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     background-color: #343A40;
     color: white;
     padding: 15px;
     font-size: 14px;
-    position: fixed;
-    bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+    margin-top: auto;
 }
 
 footer span {
@@ -70,10 +104,22 @@ footer a:hover {
     text-decoration: underline;
 }
 
+/* Mobile */
 @media (max-width: 768px) {
-    div {
-        width: 90%;
-        padding: 30px;
+    body {
+        overflow-x: hidden;
+    }
+
+    #data-container {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+        padding: 10px;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .data-block {
+        padding: 15px;
+        width: 100%;
     }
 
     footer {
@@ -84,5 +130,24 @@ footer a:hover {
 
     footer span {
         padding: 5px 0;
+    }
+
+    header {
+        font-size: 22px;
+    }
+
+    .data-block h3 {
+        font-size: 16px;
+    }
+}
+
+/* Tablet */
+@media (max-width: 1024px) {
+    #data-container {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
+
+    header {
+        font-size: 24px;
     }
 }
