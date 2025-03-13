@@ -62,7 +62,7 @@ function getTechnologies(): array
  * @param $id
  * @return array|false
  */
-function getDishDetails($id): array|false
+function getTechnologyDetails($id): array|false
 {
     $tags = [
         1 => [
